@@ -149,7 +149,7 @@ class MainWindow(QMainWindow):
                 vout = float(self.vout_text.placeholderText())
                 self.vout_text.setText(self.vout_text.placeholderText())
             else:
-                vout = float(self.vout_text.placeholderText())
+                vout = float(self.vout_text.text())
             if self.vfb_text.text() == '':
                 vfb = float(self.vfb_text.placeholderText())
                 self.vfb_text.setText(self.vfb_text.placeholderText())
