@@ -180,7 +180,7 @@ class MainWindow(QMainWindow):
             try:
                 fix_r2_value = float(self.fix_value.text())
                 fix_r2_level = self.res_lvlel_sel.currentIndex()
-                fix_r2 = f"{fix_r2_value}" + {0: "R", 1: "k", 2: "M"}[fix_r2_level]
+                fix_r2 = f"{fix_r2_value}" + {0: "R", 1: "K", 2: "M"}[fix_r2_level]
             except ValueError:
                 QMessageBox.warning(self, "Warning", "Invalid fixed R2 value. Please enter a numeric value.")
                 return
@@ -245,7 +245,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
 
     # Splash screen
-    splash_pix = QPixmap(os.path.join(basedir, "icons/splash.png"))
+    splash_pix = QPixmap(os.path.join(basedir, "icons/respick_splash.png"))
     splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
     splash.setMask(splash_pix.mask())
     splash.show()
