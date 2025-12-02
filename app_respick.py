@@ -2,6 +2,7 @@ import sys
 import os
 import re
 import time
+import platform
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QLabel, QCheckBox, QVBoxLayout,
     QHBoxLayout,QWidget, QMessageBox, QFrame, QPushButton, QToolButton,
@@ -23,8 +24,14 @@ from respick.respick.cli import format_resistor
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("ResPicker")
-        self.setWindowIcon(QIcon(os.path.join(basedir, "icons/icon.svg")))
+        self.setWindowTitle("ResPick")
+        system = platform.system()
+        if system == "Windows":
+            self.setWindowIcon(QIcon(os.path.join(basedir, "icons/icon.ico")))
+        elif system == "Darwin":  # macOS
+            self.setWindowIcon(QIcon(os.path.join(basedir, "icons/icon.svg")))
+        elif system == "Linux":
+            self.setWindowIcon(QIcon(os.path.join(basedir, "icons/icon.svg")))
         self.setMinimumSize(445, 300)
         self.resize(455, 507)
         self.setup_ui()
